@@ -121,25 +121,16 @@ wk.register({
         b = { function() gitsigns.blame_line{full=true} end, "Blame Line"},
         t = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle Blame Line"},
         s = { function() gitsigns.stage_hunk() end, "Stage Hunk"},
-        r = { function() gitsigns.reset_hunk{} end, "Reset Hunk"},
-        u = { function() gitsigns.undo_stage_hunk{} end, "Undo Stage Hunk"},
-        S = { function() gitsigns.stage_buffer{} end, "Stage File"},
-        R = { function() gitsigns.reset_buffer{} end, "Reset File"},
-        U = { function() gitsigns.undo_stage_buffer{} end, "Undo Stage Buffer"},
-        p = { function() gitsigns.preview_hunk{} end, "Preview Hunk"}
-
-    --      e = "Edit File", -- same as above
-    --      ["1"] = "which_key_ignore",  -- special label to hide it in the popup
-    --      b = { function() print("bar") end, "Foobar" } -- you can also pass functions!
+        r = { function() gitsigns.reset_hunk() end, "Reset Hunk"},
+        u = { function() gitsigns.undo_stage_hunk() end, "Undo Stage Hunk"},
+        S = { function() gitsigns.stage_buffer() end, "Stage File"},
+        R = { function() gitsigns.reset_buffer() end, "Reset File"},
+        U = { function() gitsigns.undo_stage_buffer() end, "Undo Stage Buffer"},
+        p = { function() gitsigns.preview_hunk() end, "Preview Hunk"},
+        D = { function() gitsigns.toggle_deleted() end, "Toggle Deleted"}
     },
 }, { prefix = "<leader>" })
 
-
--- map('v', '<leader>hs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
--- map('v', '<leader>hr', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
--- map('n', '<leader>hd', gitsigns.diffthis)
--- map('n', '<leader>hD', function() gitsigns.diffthis('~') end)
--- map('n', '<leader>td', gitsigns.toggle_deleted)
 
 --Neotree bindings
 wk.register({
