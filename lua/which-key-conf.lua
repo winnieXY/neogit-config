@@ -1,6 +1,4 @@
-local wk = require("which-key")
-
-wk.setup {
+require("which-key").setup {
     -- your configuration comes here
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
@@ -92,6 +90,8 @@ wk.setup {
     },
 }
 
+local wk = require("which-key")
+
 --TODO: General and Buffer Bindings for quick switching
 
 --TODO: Telescope bindings and File Bindings
@@ -99,26 +99,31 @@ wk.register({
     f = {
         name = "file", -- optional group name
         f = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
-        r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap=false, buffer = 123 }, -- additional options for creating the keymap
-        n = { "New File" }, -- just a label. don't create any mapping
+        r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File"}, -- additional options for creating the keymap
+        n = { "New File" } -- just a label. don't create any mapping
     --      e = "Edit File", -- same as above
     --      ["1"] = "which_key_ignore",  -- special label to hide it in the popup
     --      b = { function() print("bar") end, "Foobar" } -- you can also pass functions!
     },
 }, { prefix = "<leader>" })
 
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+-- local builtin = require('telescope.builtin')
+-- vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+-- vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+-- vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+-- vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
---TODO: gitsigns & Neogit bindings:
+
+-- local gitsigns = require('gitsigns')
+-- --TODO: gitsigns & Neogit bindings:
 wk.register({
     g = {
         name = "Git", -- optional group name
-        f = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
-        r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap=false, buffer = 123 }, -- additional options for creating the keymap
-        n = { "New File" }, -- just a label. don't create any mapping
+        g = { "<cmd>Neogit<cr>", "Show Main Window" }, -- create a binding with label
+        r = { "<cmd>Neogit log<cr>", "Show/Search Log" }, -- additional options for creating the keymap
+        n = { "<cmd>Neogit commit<cr>", "Commit" }, -- just a label. don't create any mapping
+        b = { function() gitsigns.blame_line{full=true} end, "Blame Line"},
+        t = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle Blame Line"},
     --      e = "Edit File", -- same as above
     --      ["1"] = "which_key_ignore",  -- special label to hide it in the popup
     --      b = { function() print("bar") end, "Foobar" } -- you can also pass functions!
@@ -126,20 +131,20 @@ wk.register({
 }, { prefix = "<leader>" })
 
 
-map('n', '<leader>hs', gitsigns.stage_hunk)
-map('n', '<leader>hr', gitsigns.reset_hunk)
-map('v', '<leader>hs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-map('v', '<leader>hr', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
-map('n', '<leader>hS', gitsigns.stage_buffer)
-map('n', '<leader>hu', gitsigns.undo_stage_hunk)
-map('n', '<leader>hR', gitsigns.reset_buffer)
-map('n', '<leader>hp', gitsigns.preview_hunk)
-map('n', '<leader>hb', function() gitsigns.blame_line{full=true} end)
-map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
-map('n', '<leader>hd', gitsigns.diffthis)
-map('n', '<leader>hD', function() gitsigns.diffthis('~') end)
-map('n', '<leader>td', gitsigns.toggle_deleted)
--- :Neogit <--show main window
+-- map('n', '<leader>hs', gitsigns.stage_hunk)
+-- map('n', '<leader>hr', gitsigns.reset_hunk)
+-- map('v', '<leader>hs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+-- map('v', '<leader>hr', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+-- map('n', '<leader>hS', gitsigns.stage_buffer)
+-- map('n', '<leader>hu', gitsigns.undo_stage_hunk)
+-- map('n', '<leader>hR', gitsigns.reset_buffer)
+-- map('n', '<leader>hp', gitsigns.preview_hunk)
+-- map('n', '<leader>hb', function() gitsigns.blame_line{full=true} end)
+-- map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
+-- map('n', '<leader>hd', gitsigns.diffthis)
+-- map('n', '<leader>hD', function() gitsigns.diffthis('~') end)
+-- map('n', '<leader>td', gitsigns.toggle_deleted)
+-- -- :Neogit <--show main window
 -- :Neogit log <-- show log window
 -- :Neogit commit <-- show commit window
 
@@ -148,8 +153,8 @@ wk.register({
     t = {
         name = "NeoTree", -- optional group name
         t = { "<cmd>Neotree source=filesystem position=left focus<cr>", "Open Explorer" }, -- create a binding with label
-        x = { "<cmd>Neotree close<cr>", "Close Explorer", noremap=false, buffer = 123 }, -- additional options for creating the keymap
-        b = { "<cmd>Neotree source=buffers position=float focus" }, -- just a label. don't create any mapping
+        x = { "<cmd>Neotree close<cr>", "Close Explorer"}, -- additional options for creating the keymap
+        b = { "<cmd>Neotree source=buffers position=float focus", "Show Buffers" }, -- just a label. don't create any mapping
     --      e = "Edit File", -- same as above
     --      ["1"] = "which_key_ignore",  -- special label to hide it in the popup
     --      b = { function() print("bar") end, "Foobar" } -- you can also pass functions!

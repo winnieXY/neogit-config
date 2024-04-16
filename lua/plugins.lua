@@ -101,4 +101,4 @@ require("mason").setup({
     }
 })
 
--- require('which-key-conf')
+require('which-key-conf')
