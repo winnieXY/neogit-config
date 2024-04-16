@@ -1,3 +1,5 @@
+
+
 local vim = vim
 local Plug = vim.fn['plug#']
 
@@ -63,14 +65,40 @@ Plug('tpope/vim-fireplace', { ['for'] = 'clojure' })
 -- Plug('ldelossa/nvim-ide')
 
 Plug('dnlhc/glance.nvim')
+
+Plug('williamboman/mason.nvim')
+
+Plug('folke/trouble.nvim')
+Plug('nvim-tree/nvim-web-devicons')
+
+Plug('folke/todo-comments.nvim')
+
+Plug('nvim-neo-tree/neo-tree.nvim')
+Plug('MunifTanjim/nui.nvim')
+
+Plug('folke/which-key.nvim')
+
 vim.call('plug#end')
 
 require('telescope')
 require('nvim-cmp')
 -- require('nvim-ide')
+
 require('glance-conf')
 
 local  neogit = require('neogit')
 neogit.setup {}
 
 require('gitsigns-conf')
+
+require("mason").setup({
+    ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+})
+
+-- require('which-key-conf')

@@ -3,6 +3,8 @@ vim.opt.clipboard = 'unnamedplus'   -- use system clipboard
 vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
 vim.opt.mouse = 'a'                 -- allow the mouse to be used in Nvim
 
+vim.g.mapleader = ','
+
 -- Tab
 vim.opt.tabstop = 4                 -- number of visual spaces per TAB
 vim.opt.softtabstop = 4             -- number of spacesin tab when editing
@@ -17,7 +19,7 @@ vim.opt.splitbelow = true           -- open new vertical split bottom
 vim.opt.splitright = true           -- open new horizontal splits right
 -- vim.opt.termguicolors = true        -- enabl 24-bit RGB color in the TUI
 vim.opt.showmode = true            -- we are experienced, wo don't need the "-- INSERT --" mode hint
---vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 600
 vim.opt.showcmd = True              -- Show leader
 
 -- Searching
