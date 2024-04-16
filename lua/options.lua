@@ -19,7 +19,7 @@ vim.opt.splitbelow = true           -- open new vertical split bottom
 vim.opt.splitright = true           -- open new horizontal splits right
 -- vim.opt.termguicolors = true        -- enabl 24-bit RGB color in the TUI
 vim.opt.showmode = true            -- we are experienced, wo don't need the "-- INSERT --" mode hint
-vim.opt.timeoutlen = 600
+vim.opt.timeoutlen = 700
 vim.opt.showcmd = True              -- Show leader
 
 -- Searching

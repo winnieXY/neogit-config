@@ -92,8 +92,9 @@ wk.setup {
     },
 }
 
+--TODO: General and Buffer Bindings for quick switching
 
-
+--TODO: Telescope bindings and File Bindings
 wk.register({
     f = {
         name = "file", -- optional group name
@@ -106,6 +107,12 @@ wk.register({
     },
 }, { prefix = "<leader>" })
 
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+--TODO: gitsigns & Neogit bindings:
 wk.register({
     g = {
         name = "Git", -- optional group name
@@ -118,12 +125,31 @@ wk.register({
     },
 }, { prefix = "<leader>" })
 
+
+map('n', '<leader>hs', gitsigns.stage_hunk)
+map('n', '<leader>hr', gitsigns.reset_hunk)
+map('v', '<leader>hs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+map('v', '<leader>hr', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
+map('n', '<leader>hS', gitsigns.stage_buffer)
+map('n', '<leader>hu', gitsigns.undo_stage_hunk)
+map('n', '<leader>hR', gitsigns.reset_buffer)
+map('n', '<leader>hp', gitsigns.preview_hunk)
+map('n', '<leader>hb', function() gitsigns.blame_line{full=true} end)
+map('n', '<leader>tb', gitsigns.toggle_current_line_blame)
+map('n', '<leader>hd', gitsigns.diffthis)
+map('n', '<leader>hD', function() gitsigns.diffthis('~') end)
+map('n', '<leader>td', gitsigns.toggle_deleted)
+-- :Neogit <--show main window
+-- :Neogit log <-- show log window
+-- :Neogit commit <-- show commit window
+
+--Neotree bindings
 wk.register({
     t = {
         name = "NeoTree", -- optional group name
-        f = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
-        r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap=false, buffer = 123 }, -- additional options for creating the keymap
-        n = { "New File" }, -- just a label. don't create any mapping
+        t = { "<cmd>Neotree source=filesystem position=left focus<cr>", "Open Explorer" }, -- create a binding with label
+        x = { "<cmd>Neotree close<cr>", "Close Explorer", noremap=false, buffer = 123 }, -- additional options for creating the keymap
+        b = { "<cmd>Neotree source=buffers position=float focus" }, -- just a label. don't create any mapping
     --      e = "Edit File", -- same as above
     --      ["1"] = "which_key_ignore",  -- special label to hide it in the popup
     --      b = { function() print("bar") end, "Foobar" } -- you can also pass functions!

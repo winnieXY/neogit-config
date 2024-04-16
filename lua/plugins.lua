@@ -80,7 +80,7 @@ Plug('folke/which-key.nvim')
 
 vim.call('plug#end')
 
-require('telescope')
+require('telescope-conf')
 require('nvim-cmp')
 -- require('nvim-ide')
 
