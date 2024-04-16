@@ -78,6 +78,12 @@ Plug('MunifTanjim/nui.nvim')
 
 Plug('folke/which-key.nvim')
 
+Plug('nvim-lualine/lualine.nvim')
+
+Plug('akinsho/bufferline.nvim')
+
+--Plug('norcalli/nvim-colorizer.lua')
+
 vim.call('plug#end')
 
 require('telescope-conf')
@@ -90,7 +96,7 @@ local  neogit = require('neogit')
 neogit.setup {}
 
 require('gitsigns-conf')
-
+--require('colorizer').setup()
 require("mason").setup({
     ui = {
         icons = {
@@ -102,3 +108,4 @@ require("mason").setup({
 })
 
 require('which-key-conf')
+require('lualine-conf')
