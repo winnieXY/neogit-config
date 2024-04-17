@@ -99,6 +99,7 @@ local builtin = require('telescope.builtin')
 wk.register({
     f = {
         name = "Search&Find", -- optional group name
+        n = { "<cmd>enew<cr>", "New File" },
         f = { "<cmd>Telescope find_files<cr>", "Find File" }, -- create a binding with label
         r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File"}, -- additional options for creating the keymap
         g = { function() builtin.live_grep{} end, "Live Grep" }, -- just a label. don't create any mapping
@@ -107,10 +108,18 @@ wk.register({
     },
 }, { prefix = "<leader>" })
 
-
+--TODO: LSP Bindings
+wk.register({
+    l = {
+        name = "LSP", -- optional group name
+        a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" }, -- create a binding with label
+        d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition" }, -- additional options for creating the keymap
+        r = { "<cmd>lua vim.lsp.buf.references()<cr>", "References" }, -- just a label. don't
+    },
+}, { prefix = "<leader>" })
 
 local gitsigns = require('gitsigns')
--- --TODO: gitsigns & Neogit bindings:
+-- gitsigns & Neogit bindings:
 wk.register({
     g = {
         name = "Git", -- optional group name
@@ -135,11 +144,11 @@ wk.register({
 --Neotree bindings
 wk.register({
     t = {
-        name = "NeoTree", -- optional group name
+        name = "Explorer", -- optional group name
         t = { "<cmd>Neotree source=filesystem position=left focus<cr>", "Open Explorer" }, -- create a binding with label
         x = { "<cmd>Neotree close<cr>", "Close Explorer"}, -- additional options for creating the keymap
-        b = { "<cmd>Neotree source=buffers position=float focus", "Show Buffers" }, -- just a label. don't create any mapping
-    --      e = "Edit File", -- same as above
+        b = { "<cmd>Neotree source=buffers position=float focus<cr>", "Show Buffers" }, -- just a label. don't create any mapping
+        n = { "<cmd>enew<cr>", "New File"} -- same as above
     --      ["1"] = "which_key_ignore",  -- special label to hide it in the popup
     --      b = { function() print("bar") end, "Foobar" } -- you can also pass functions!
     },

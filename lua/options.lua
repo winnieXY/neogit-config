@@ -28,3 +28,5 @@ vim.opt.hlsearch = true            -- do highlight matches
 vim.opt.ignorecase = true           -- ignore case in searches by default
 vim.opt.smartcase = true            -- but make it case sensitive if an uppercase is entered
 
+vim.opt.guifont='UbuntuMono Nerd Font Mono:h11'
+

@@ -49,7 +49,8 @@ Plug('hrsh7th/nvim-cmp')
 Plug('hrsh7th/cmp-vsnip')
 Plug('hrsh7th/vim-vsnip')
 
---Plug('zbirenbaum/copilot.lua')
+Plug('zbirenbaum/copilot.lua')
+Plug('zbirenbaum/copilot-cmp')
 
 Plug('lewis6991/gitsigns.nvim')
 
@@ -67,6 +68,7 @@ Plug('tpope/vim-fireplace', { ['for'] = 'clojure' })
 Plug('dnlhc/glance.nvim')
 
 Plug('williamboman/mason.nvim')
+Plug('williamboman/mason-lspconfig.nvim')
 
 Plug('folke/trouble.nvim')
 Plug('nvim-tree/nvim-web-devicons')
@@ -82,12 +84,10 @@ Plug('nvim-lualine/lualine.nvim')
 
 Plug('akinsho/bufferline.nvim')
 
---Plug('norcalli/nvim-colorizer.lua')
-
 vim.call('plug#end')
 
 require('telescope-conf')
-require('nvim-cmp')
+
 -- require('nvim-ide')
 
 require('glance-conf')
@@ -96,16 +96,8 @@ local  neogit = require('neogit')
 neogit.setup {}
 
 require('gitsigns-conf')
---require('colorizer').setup()
-require("mason").setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
-})
+
+require('nvim-cmp')
 
 require('which-key-conf')
 require('lualine-conf')
