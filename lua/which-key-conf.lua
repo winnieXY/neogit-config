@@ -115,7 +115,7 @@ wk.register({
         a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" }, -- create a binding with label
         d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition" }, -- additional options for creating the keymap
         r = { "<cmd>lua vim.lsp.buf.references()<cr>", "References" }, -- just a label. don't
-        o = { "<cmd>SymbolsOutline<cr>", "Symbols Outline" }
+        o = { "<cmd>Outline<cr>", "Symbols Outline" }
     },
 }, { prefix = "<leader>" })
 

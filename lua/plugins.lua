@@ -87,7 +87,8 @@ Plug('akinsho/bufferline.nvim')
 
 Plug('vladdoster/remember.nvim')
 
-Plug('simrat39/symbols-outline.nvim')
+Plug('hedyhli/outline.nvim')
+-- Plug('simrat39/symbols-outline.nvim')
 
 vim.call('plug#end')
 
@@ -98,7 +99,8 @@ require('telescope-conf')
 
 require('glance-conf')
 
-require("symbols-outline").setup()
+require("outline").setup({})
+--require("symbols-outline").setup()
 
 local  neogit = require('neogit')
 neogit.setup {}
