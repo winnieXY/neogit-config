@@ -34,6 +34,7 @@ Plug('nvim-lua/plenary.nvim')
 Plug('sindrets/diffview.nvim')
 
 --Plug('ibhagwan/fzf-lua')
+Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate'})
 Plug('nvim-telescope/telescope.nvim')
 
 Plug('NeogitOrg/neogit') 
@@ -84,16 +85,28 @@ Plug('nvim-lualine/lualine.nvim')
 
 Plug('akinsho/bufferline.nvim')
 
+Plug('vladdoster/remember.nvim')
+
+Plug('simrat39/symbols-outline.nvim')
+
 vim.call('plug#end')
 
+require('treesitter-conf')
 require('telescope-conf')
 
 -- require('nvim-ide')
 
 require('glance-conf')
 
+require("symbols-outline").setup()
+
 local  neogit = require('neogit')
 neogit.setup {}
+
+require("remember").setup {
+    open_folds = true,
+    remember_dont_center = true,
+}
 
 require('gitsigns-conf')
 
