@@ -36,7 +36,8 @@ Plug('sindrets/diffview.nvim')
 --Plug('ibhagwan/fzf-lua')
 Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate'})
 Plug('nvim-telescope/telescope.nvim')
-
+Plug('nvim-telescope/telescope-ui-select.nvim')
+Plug('andrew-george/telescope-themes')
 Plug('NeogitOrg/neogit') 
 
 Plug('neovim/nvim-lspconfig')
