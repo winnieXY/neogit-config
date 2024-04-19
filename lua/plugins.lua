@@ -97,6 +97,7 @@ require('treesitter-conf')
 require('telescope-conf')
 
 -- require('nvim-ide')
+require('neotree-conf')
 
 require('glance-conf')
 
