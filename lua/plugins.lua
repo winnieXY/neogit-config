@@ -101,7 +101,14 @@ require('neotree-conf')
 
 require('glance-conf')
 
-require("outline").setup({})
+require("outline").setup {
+    symbols = {
+        filter = {
+            default = { 'String', 'Variable', exclude=true },
+            python = { 'Function', 'Class', 'Module', 'Package', 'Method' }
+        }
+    }
+}
 --require("symbols-outline").setup()
 
 local  neogit = require('neogit')
